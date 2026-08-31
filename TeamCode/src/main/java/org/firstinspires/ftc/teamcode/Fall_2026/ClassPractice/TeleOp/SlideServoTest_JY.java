@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Camp_2026.Mechanisms.SlideServo_JY;
+import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.SlideServo_JY;
 
 @Disabled
 @TeleOp(name="SlideServoTest_JY", group="CampTest")
@@ -53,23 +53,6 @@ public class SlideServoTest_JY extends OpMode {
             slideServo.setLowPosSlow_v1();
             //slideServo.setLowPosSlow_v2();
         }
-        slideServo.updateTelemetry();
-    }
-
-    //State Machine control
-    public void control_v2(){
-        // Changed the code below so the Slide State only is changed once.
-        if (gamepad1.cross && !crossPressed){
-            slideServo.resetTimer();
-            slideServo.slideState = SlideServo_JY.SLIDESTATE.LOW;
-            crossPressed = true;
-        } else if (!gamepad1.cross) { crossPressed = false;} //the STATE is restored to IDLE in the hardware class
-        if (gamepad1.triangle && !trianglePressed){
-            slideServo.slideState = SlideServo_JY.SLIDESTATE.HIGH;
-            slideServo.resetTimer();
-            trianglePressed = true;
-        } else if (!gamepad1.triangle){ trianglePressed = false;}
-        slideServo.update();
         slideServo.updateTelemetry();
     }
 

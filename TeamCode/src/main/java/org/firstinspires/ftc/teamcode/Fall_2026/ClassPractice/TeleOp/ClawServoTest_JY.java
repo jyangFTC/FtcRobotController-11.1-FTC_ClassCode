@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.Camp_2026.Mechanisms.ClawServo_JY;
+import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.ClawServo_JY;
 
 @Disabled
 @TeleOp(name="ClawServoTest_JY", group="CampTest")

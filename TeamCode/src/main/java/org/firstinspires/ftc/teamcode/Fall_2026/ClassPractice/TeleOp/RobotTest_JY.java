@@ -4,10 +4,10 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.Camp_2026.Mechanisms.ClawServo_JY;
-import org.firstinspires.ftc.teamcode.Camp_2026.Mechanisms.ColorSensor_JY;
-import org.firstinspires.ftc.teamcode.Camp_2026.Mechanisms.DriveTrain_JY;
-import org.firstinspires.ftc.teamcode.Camp_2026.Mechanisms.SlideServo_JY;
+import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.ClawServo_JY;
+import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.ColorSensor_JY;
+import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.DriveTrain_JY;
+import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.SlideServo_JY;
 
 //@Disabled
 @TeleOp (name="RobotTest_JY", group="CampTest")
