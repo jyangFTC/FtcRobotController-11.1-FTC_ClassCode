@@ -63,22 +63,6 @@ public class ClawServo_JY {
         telemetry.addData("Claw current pos ", claw_cur_pos);
     }
 
-    // Press a button on the gamepad to switch claw postion from close to open and vice versa
-    public void toggleClaw(boolean toggleButtonPressed){
-        if(toggleButtonPressed && !prevtogglebuttonpressed){
-            isOpen = !isOpen;
-            prevtogglebuttonpressed = true;
-        } else if (!toggleButtonPressed){
-            prevtogglebuttonpressed = false;
-        }
-        if(prevtogglebuttonpressed){
-            if (isOpen){
-                openClaw_v1();
-            } else {
-                closeClaw_v1();
-            }
-        }
-        telemetry.addData("isOpen =", isOpen);
-    }
+
 
 }

@@ -34,8 +34,7 @@ public class SlideServoTest_JY extends OpMode {
 
     public void loop(){
         getLoopTime();
-        control_v2(); //the State Machine
-        //control_v1(); //non State-Machine
+        control_v1(); //non State-Machine
 
         telemetry.update();
     }

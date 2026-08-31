@@ -75,9 +75,7 @@ public class ClawServoTest_JY extends OpMode {
         } else if (!gamepad1.cross){
             crossPressed = false;
         }
-        if (crossPressed){
-            clawServo.toggleClaw_v2();
-        }
+
         //clawServo.toggleClaw(gamepad1.cross);
     }
 
