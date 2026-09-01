@@ -1,11 +1,12 @@
 package org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.TeleOp;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.ColorSensor_JY;
 
-//@Disabled
+@Disabled
 @TeleOp(name="ColorSensorTest_JY", group="CampTest")
 public class ColorSensorTest_JY extends OpMode {
 

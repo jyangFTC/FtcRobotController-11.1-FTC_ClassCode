@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.TeleOp;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
@@ -9,7 +10,7 @@ import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.ColorSe
 import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.DriveTrain_JY;
 import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.SlideServo_JY;
 
-//@Disabled
+@Disabled
 @TeleOp (name="RobotTest_JY", group="CampTest")
 public class RobotTest_JY extends OpMode {
 

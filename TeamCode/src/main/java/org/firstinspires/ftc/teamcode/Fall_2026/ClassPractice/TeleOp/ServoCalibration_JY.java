@@ -1,11 +1,12 @@
 package org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.TeleOp;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.PwmControl;
 import com.qualcomm.robotcore.hardware.ServoImplEx;
 
-//@Disabled
+@Disabled
 @TeleOp(name="ServoCalibration_jy", group="CampTest")
 
 //@Disabled
