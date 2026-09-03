@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.ClawServo_JY;
 
 @Disabled
-@TeleOp(name="ClawServoTest_JY", group="CampTest")
+@TeleOp(name="ClawServoTest_JY", group="Fall_2026")
 public class ClawServoTest_JY extends OpMode {
     ClawServo_JY clawServo;
     double claw_pos;

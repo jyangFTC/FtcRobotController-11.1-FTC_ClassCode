@@ -81,7 +81,7 @@ lint/tmp/
 # lint/reports/
 
 # Don't track the following folders. Private to JY
-#**/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Camp_2026/
+**/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Camp_2026/
 **/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/Camp_2025/
 **/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/CIPHER_Robot/
 **/TeamCode/src/main/java/org/firstinspires/ftc/teamcode/FTCTraining/

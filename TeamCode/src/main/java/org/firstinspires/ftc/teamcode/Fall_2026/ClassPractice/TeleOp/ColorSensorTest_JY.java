@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.ColorSensor_JY;
 
 @Disabled
-@TeleOp(name="ColorSensorTest_JY", group="CampTest")
+@TeleOp(name="ColorSensorTest_JY", group="Fall_2026")
 public class ColorSensorTest_JY extends OpMode {
 
     //Must do the "new" to allocate memory (although not initiated it). Otherwise, null pointer error.

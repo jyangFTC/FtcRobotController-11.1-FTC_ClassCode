@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.PwmControl;
 import com.qualcomm.robotcore.hardware.ServoImplEx;
 
 @Disabled
-@TeleOp(name="ServoCalibration_jy", group="CampTest")
+@TeleOp(name="ServoCalibration_jy", group="Fall_2026")
 
 //@Disabled
 // Using "2026CampMiniBot" configuration on Blue DS

@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.DriveTr
 import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.SlideServo_JY;
 
 @Disabled
-@TeleOp (name="RobotTest_JY", group="CampTest")
+@TeleOp (name="RobotTest_JY", group="Fall_2026")
 public class RobotTest_JY extends OpMode {
 
     private ClawServo_JY clawServo;

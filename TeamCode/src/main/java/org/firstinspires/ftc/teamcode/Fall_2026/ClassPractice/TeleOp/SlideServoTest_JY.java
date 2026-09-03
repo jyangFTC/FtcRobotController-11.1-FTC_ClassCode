@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.SlideServo_JY;
 
 @Disabled
-@TeleOp(name="SlideServoTest_JY", group="CampTest")
+@TeleOp(name="SlideServoTest_JY", group="Fall_2026")
 public class SlideServoTest_JY extends OpMode {
     SlideServo_JY slideServo;
     double slide_pos;

@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms.DriveTrain_JY;
 
 @Disabled
-@TeleOp(name="DriveTrainTest_JY", group="CampTest")
+@TeleOp(name="DriveTrainTest_JY", group="Fall_2026")
 public class DriveTrainTest_JY extends OpMode {
 
     private DriveTrain_JY driveTrain;
