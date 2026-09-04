@@ -31,11 +31,6 @@ public class SlideServo_JY {
     private final ElapsedTime slideTimer = new ElapsedTime();
     double last_time = 0;
 
-    // Slide positions
-    public enum SLIDESTATE {
-        HIGH, MID, LOW, IDLE
-    }
-    public SLIDESTATE slideState;
 
     public void init(HardwareMap hwMap, Telemetry telemetry){
         slideServo = hwMap.get(Servo.class, "slide_servo");
@@ -43,8 +38,6 @@ public class SlideServo_JY {
         this.telemetry = telemetry;
         slide_cur_pos = LOW_POSITION;
         slideTimer.reset();
-
-        slideState = SLIDESTATE.IDLE;
     }
 
     public void manuallyAdjustSlide(Gamepad gamepad1, int RCNumber){
@@ -83,29 +76,7 @@ public class SlideServo_JY {
         slideTimer.reset();
     }
 
-    public void update(){
-        switch(slideState){
-            case LOW:
-                telemetry.addLine("Slide AT LOW");
-                //setLowPosSlow_v2();
-                setLowPos_v1();
-                break;  // withoug "break", the code moves to the following line (case HIGH)
 
-            case HIGH:
-                setHighPos_v2();
-                telemetry.addLine("Slide AT HIGH");
-                break;
-
-            case IDLE:
-                telemetry.addLine("Slide is IDLE");
-                break;
-
-            //A good habbit to have the default case so any missed case can be handled
-            default:
-                telemetry.addLine("No case matches");
-                break;
-        }
-    }
 
 
     public void setSlidePosition(double position){
@@ -124,7 +95,6 @@ public class SlideServo_JY {
             slideServo.setPosition(HIGH_POSITION);
         } else {
             slide_cur_pos = HIGH_POSITION;
-            slideState = SLIDESTATE.IDLE;
         }
     }
 
@@ -142,7 +112,6 @@ public class SlideServo_JY {
             slideServo.setPosition(LOW_POSITION);
         } else {
             slide_cur_pos = LOW_POSITION;
-            slideState = SLIDESTATE.IDLE;
         }
 
     }
@@ -176,21 +145,6 @@ public class SlideServo_JY {
         }
     }
 
-    // STATE MACHINE control, also slow down the moving down speed
-    public void setLowPosSlow_v3(){
-        double step = 0.01;
-        double interval = 20; // interval of each step: ms.
-
-        if (slide_cur_pos > LOW_POSITION && (slideTimer.milliseconds()-last_time) > interval) {
-            slide_cur_pos -= step;
-            slideServo.setPosition(slide_cur_pos);
-            telemetry.addData("Drop to slide position", slide_cur_pos);
-        } else if (slide_cur_pos <= LOW_POSITION){
-            slideState = SLIDESTATE.IDLE;
-            slideTimer.reset();
-        }
-        last_time = slideTimer.milliseconds();
-    }
 
     // Only position control, but no time control. Took about 20 cycles, at 1.7 ms/cycle, still very fast.
     public void setLowPosSlow_v1(){
@@ -201,7 +155,6 @@ public class SlideServo_JY {
             slideServo.setPosition(slide_cur_pos);
         }
     }
-
 
     public void updateTelemetry(){
         telemetry.addData("Slide cur pos ", slide_cur_pos);

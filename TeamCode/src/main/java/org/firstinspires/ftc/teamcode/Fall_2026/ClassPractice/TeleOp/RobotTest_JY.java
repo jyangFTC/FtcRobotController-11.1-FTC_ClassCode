@@ -47,6 +47,7 @@ public class RobotTest_JY extends OpMode {
         colorSensor = new ColorSensor_JY();
         colorSensor.init(hardwareMap, telemetry);
 
+        lastlooptime = time;
         telemetry.addLine("Init is completed");
     }
 
@@ -54,14 +55,15 @@ public class RobotTest_JY extends OpMode {
         driveTrain.FCDrive(gamepad1.left_stick_y, gamepad1.left_stick_x, gamepad1.right_stick_x);
         //driveTrain.updateTelemetry();
         //Sequence_1();
-        //telemetry.addData("Detected color is ", colorSensor.getDetectedColor());
+        telemetry.addData("Detected color is ", colorSensor.getDetectedColor());
         clawServo.manuallyAdjustClaw(gamepad1, 3); //dpad_left and right
         slideServo.manuallyAdjustSlide(gamepad1, 3);  //dpad_up and down
         //driveTrain.checkPort(gamepad1); //USE all 4 buttons on the top right.
         //clawServo.setClawPos(0.26); //RC3, almost close
         //slideServo.setSlidePosition(0.50); //RC3 almost at the bottom
-        nonSequntial(); //triangle, cross, square, circle
-        //Sequence_2();
+        //nonSequntial(); //triangle, cross, square, circle
+        Sequence_2();
+        Sequence_1();
 
         clawServo.toggleClaw(gamepad1.right_bumper);
 
@@ -69,13 +71,11 @@ public class RobotTest_JY extends OpMode {
             driveTrain.resetYaw();
             telemetry.addLine("IMU is reset to 0");
         }
-
-        //telemetry.addData("loop time is", getLoopTime());
         updateTelemetry();
     }
 
 
-    // Close claw -> if (red), turn right 90 degree ; else if (blue), turn left 90 -> open claw
+    // Close claw -> if (red), forward 2000 ms ; else if (blue), backward 2000 ms -> open claw
     private void Sequence_2() {
         if (gamepad1.cross && !doSequence2) {
             timer2.reset();
@@ -157,15 +157,7 @@ public class RobotTest_JY extends OpMode {
         }
     }
 
-    //time: passed from OpMode class, called before each loop - how much time the OpMode has been running
-    public double getLoopTime(){
-        looptime = time - lastlooptime;
-        lastlooptime = time;
-        return looptime;
-    }
-
     public void updateTelemetry () {
-        telemetry.addData("loop time is", getLoopTime());
         clawServo.updateTelemetry();
         slideServo.updateTelemetry();
         driveTrain.updateTelemetry();

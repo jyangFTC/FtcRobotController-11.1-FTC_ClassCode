@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.Fall_2026.ClassPractice.Mechanisms;
 import com.qualcomm.robotcore.hardware.Gamepad;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -32,9 +31,7 @@ public class ClawServo_JY {
     boolean prev_dpad_left = false;
     boolean prev_dpad_right = false;
 
-    private final ElapsedTime clawTimer = new ElapsedTime();
-    public enum CLAWSTATE{CLOSE, OPEN, IDLE}
-    private CLAWSTATE clawstate;
+    //private final ElapsedTime clawTimer = new ElapsedTime();
 
     public void init(HardwareMap hwMap, Telemetry telemetry){
         clawServo = hwMap.get(Servo.class, "claw_servo");
@@ -43,24 +40,9 @@ public class ClawServo_JY {
         clawServo.setPosition(claw_cur_pos);
         this.telemetry = telemetry;
         isOpen = true;
-        clawstate = CLAWSTATE.IDLE;
+        //clawstate = CLAWSTATE.IDLE;
     }
 
-    public void update(){
-        switch(clawstate){
-            case CLOSE:
-                closeClaw_v2();
-                break;
-
-            case OPEN:
-                openClaw_v2();
-                break;
-
-            case IDLE:
-                telemetry.addLine("Claw is IDLE");
-                break;
-        }
-    }
     public double getClawPos(){
         return claw_cur_pos;
     }
@@ -105,31 +87,11 @@ public class ClawServo_JY {
         claw_cur_pos = CLAW_CLOSE_POS;
     }
 
-    // With State Machine control
-    public void closeClaw_v2(){
-        if(clawstate == CLAWSTATE.IDLE ) {
-            clawTimer.reset();  // reset timer when just start closing
-        }
-        clawServo.setPosition(CLAW_CLOSE_POS);
-        claw_cur_pos = CLAW_CLOSE_POS;
-        // after 500 ms, the claw fully closed. Set state to IDLE
-        if(clawTimer.milliseconds() > 500){
-            clawstate =CLAWSTATE.IDLE;
-        }
-    }
-
     public void openClaw_v1(){
         clawServo.setPosition(CLAW_OPEN_POS);
         claw_cur_pos = CLAW_OPEN_POS;
     }
 
-    public void openClaw_v2(){
-        if(clawstate == CLAWSTATE.IDLE){
-            clawTimer.reset();
-        }
-        clawServo.setPosition(CLAW_OPEN_POS);
-        claw_cur_pos = CLAW_OPEN_POS;
-    }
     public void updateTelemetry(){
         telemetry.addData("Claw current pos ", claw_cur_pos);
     }
@@ -152,12 +114,4 @@ public class ClawServo_JY {
         telemetry.addData("isOpen =", isOpen);
     }
 
-    public void toggleClaw_v2(){
-        if (isOpen){
-            openClaw_v1();
-        } else {
-            closeClaw_v1();
-        }
-
-    }
 }

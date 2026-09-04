@@ -62,12 +62,5 @@ public class ColorSensor_JY {
 
     }
 
-    /*
-    public double getDistance(Telemetry telemetry){
-        distanceMm = distanceSensor.getDistance(DistanceUnit.MM);
-        telemetry.addData("distance mm", distanceMm);
-        return distanceMm;
-    }
 
-     */
 }

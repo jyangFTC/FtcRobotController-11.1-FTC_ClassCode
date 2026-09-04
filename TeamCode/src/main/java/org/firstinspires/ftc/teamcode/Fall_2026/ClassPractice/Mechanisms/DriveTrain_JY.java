@@ -80,8 +80,6 @@ public class DriveTrain_JY {
         backRight.setPower(0.0);
     }
 
-
-
     public void resetYaw(){
         imu.resetYaw();
     }
