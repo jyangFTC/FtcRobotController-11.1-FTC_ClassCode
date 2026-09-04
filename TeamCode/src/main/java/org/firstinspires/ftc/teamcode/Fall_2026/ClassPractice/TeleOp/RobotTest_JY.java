@@ -134,7 +134,7 @@ public class RobotTest_JY extends OpMode {
         } else if (timer1.milliseconds() < 600) {
             clawServo.openClaw_v1();
         } else if (timer1.milliseconds() < 800) {
-            slideServo.setLowPosSlow_v1();
+            slideServo.setLowPos_v1();
         } else {
             //timer1.reset(); with this reset, the sequence will repeat on its own
             // because the timer will proceed without pressing the square button
