@@ -19,6 +19,7 @@ public class ColorSensor_JY {
         color_sensor = hardwareMap.get(NormalizedColorSensor.class, "CS1"); //ON PORT 1
         color_sensor.setGain(1);
         this.telemetry = telemetry;
+        //distanceSensor = hwMap.get(DistanceSensor.class, "color_sensor");
     }
 
     public enum DetectedColor{
@@ -61,4 +62,12 @@ public class ColorSensor_JY {
 
     }
 
+    /*
+    public double getDistance(Telemetry telemetry){
+        distanceMm = distanceSensor.getDistance(DistanceUnit.MM);
+        telemetry.addData("distance mm", distanceMm);
+        return distanceMm;
+    }
+
+     */
 }

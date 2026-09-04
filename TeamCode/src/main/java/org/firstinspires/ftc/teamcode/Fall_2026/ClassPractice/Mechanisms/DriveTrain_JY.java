@@ -9,7 +9,6 @@ import com.qualcomm.robotcore.hardware.IMU;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
-
 public class DriveTrain_JY {
     private DcMotor frontLeft, frontRight, backLeft, backRight;
     private double frontleftPower, frontrightPower, backleftPower, backrightPower;
@@ -21,13 +20,13 @@ public class DriveTrain_JY {
     private Gamepad gamepad1;
 
 
-    public void init(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad1){
+    public void init(HardwareMap hardwareMap, Telemetry telemetry){
         frontLeft = hardwareMap.get(DcMotor.class, "front_left"); //port 0
         frontRight = hardwareMap.get(DcMotor.class, "front_right"); // port 2
         backLeft = hardwareMap.get(DcMotor.class, "back_left"); // port 1
         backRight = hardwareMap.get(DcMotor.class, "back_right"); // port 3
         this.telemetry = telemetry;
-        this.gamepad1 = gamepad1;
+        //this.gamepad1 = gamepad1;
 
         // reverse the mirror side (left) of motors
         frontLeft.setDirection(DcMotor.Direction.REVERSE);
@@ -47,13 +46,13 @@ public class DriveTrain_JY {
         heading = imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS);
     }
 
-    public void init_RC2(HardwareMap hardwareMap, Telemetry telemetry, Gamepad gamepad1){
+    public void init_RC2(HardwareMap hardwareMap, Telemetry telemetry){
         frontLeft = hardwareMap.get(DcMotor.class, "front_left"); //port 0
         frontRight = hardwareMap.get(DcMotor.class, "front_right"); // port 2
         backLeft = hardwareMap.get(DcMotor.class, "back_left"); // port 1
         backRight = hardwareMap.get(DcMotor.class, "back_right"); // port 3
         this.telemetry = telemetry;
-        this.gamepad1 = gamepad1;
+        //this.gamepad1 = gamepad1;
 
         // reverse the pairing side of motor
         //frontLeft.setDirection(DcMotor.Direction.REVERSE);
@@ -160,7 +159,7 @@ public class DriveTrain_JY {
         backrightPower = backrightPower *maxPower;
     }
 
-    public void setPower(){
+    private void setPower(){
         frontLeft.setPower(frontleftPower);
         backLeft.setPower(backleftPower);
         frontRight.setPower(frontrightPower);
@@ -187,7 +186,7 @@ public class DriveTrain_JY {
     // Run motor one by one to check the port match
     // Port 0- front left; Port 2: front-right
     // Port 1 - back left; Port 3: back-right
-    public void checkPort(){
+    public void checkPort(Gamepad gamepad1){
         if (gamepad1.square){
             frontLeft.setPower(0.5);
         } else if (!gamepad1.square){
